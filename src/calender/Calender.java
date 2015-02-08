@@ -36,7 +36,7 @@ public class Calender extends Application {
         
         Scene scene = new Scene(root, 1200,700);
 
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("カレンダー - JavaFX");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

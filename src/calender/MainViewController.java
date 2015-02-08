@@ -17,7 +17,10 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import java.util.function.Function;;
+import java.util.function.Function;
+import javafx.scene.paint.Color;
+import java.util.Map;import javafx.collections.ObservableMap;
+;
 
 /**
  * FXML Controller class
@@ -43,12 +46,12 @@ public class MainViewController implements Initializable {
     private GridPane baseGrid;
     
     @FXML
-    private ListView calenderList;
+    private ListView<CalenderModel> calenderList;
     
     /**
-     * カレンダーリストを表す文字列を格納
+     * calenderListのためのCalenderModelクラスを格納します
      */
-    private final ObservableList<String> calenderNameList = FXCollections.observableArrayList();
+    private final ObservableList<CalenderModel> calenderModelList = FXCollections.observableArrayList();
     
     /**
      * baseGridの各セルを初期化します。
@@ -75,9 +78,14 @@ public class MainViewController implements Initializable {
      * calenderListを初期化します。
      */
     private void initCalenderList(){
-        calenderList.setItems(calenderNameList);
-        calenderNameList.add("DefaultCalender");
-        calenderNameList.add("SecondCalender");
+        calenderList.setItems(calenderModelList);
+        calenderModelList.add(new CalenderModel());
+        calenderModelList.add(new CalenderModel("バイト",Color.BROWN));
+        calenderModelList.add(new CalenderModel("学校",Color.BEIGE));
+        
+        calenderList.setCellFactory(param -> {
+            return new CalenderListCell();
+        });
     }
     
     /**

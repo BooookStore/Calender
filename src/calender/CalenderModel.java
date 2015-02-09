@@ -12,7 +12,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.paint.Color;
 
 /**
- * カレンダーを表すクラス
+ * カレンダーを表すモデルクラス
  * @author bookstore
  */
 public class CalenderModel {
@@ -28,7 +28,7 @@ public class CalenderModel {
         return calenderName.getValue();
     }
     
-    StringProperty calenderNameProperty(){
+    public StringProperty calenderNameProperty(){
         return calenderName;
     }
  
@@ -40,7 +40,7 @@ public class CalenderModel {
         return iconColor.get();
     }
     
-    ObjectProperty<Color> iconColorProperty(){
+    public ObjectProperty<Color> iconColorProperty(){
         return iconColor;
     }
     //--ここまでJavaFX Property　メソッド
@@ -49,7 +49,7 @@ public class CalenderModel {
      * フィールドを初期状態で初期化します。
      */
     public CalenderModel(){
-        calenderName = new SimpleStringProperty(this,"calenderName","Default");
+        calenderName = new SimpleStringProperty(this,"calenderName","None Name");
         iconColor = new SimpleObjectProperty<>(this,"iconColor",Color.WHITE);
     }
     

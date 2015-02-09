@@ -5,6 +5,7 @@
  */
 package calender;
 
+import calender.list.CalenderListCell;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -29,14 +30,17 @@ import java.util.Map;import javafx.collections.ObservableMap;
  */
 public class MainViewController implements Initializable {
 
-    private Function<Integer,Node> cellFactory;
+    /**
+     * カレンダーのDayCellを作り出すファクトリです。外部から設定されます。
+     */
+    private Function<Integer,Node> dayCellFactory;
     
     /**
-     * 日付を作成する関数型インターフェイスの実装を外部へ要求
+     * 日付を作成する関数型インターフェイスの実装を外部へ要求します
      * @param cellFactory 
      */
     public void setCellFactory(Function<Integer,Node> cellFactory){
-        this.cellFactory = cellFactory;
+        this.dayCellFactory = cellFactory;
     }
     
     @FXML
@@ -62,7 +66,7 @@ public class MainViewController implements Initializable {
         for(int i = 0 ; i < 6 ; i++){
             for(int j = 0 ; j < 7 ; j++){
                 
-                Node cell = cellFactory.apply(day);     //セルの作成
+                Node cell = dayCellFactory.apply(day);     //セルの作成
                 
                 //縦、横に関して、開いているスペースを埋めるように自由に拡張するようにセット
                 GridPane.setHgrow(cell, Priority.ALWAYS);

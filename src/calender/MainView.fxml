@@ -13,6 +13,6 @@
       </GridPane>
    </center>
    <left>
-      <ListView fx:id="calenderList" prefHeight="200.0" prefWidth="200.0" style="list-cell:: 50;" styleClass="list-cell:even{ -fx-background-color : black }" BorderPane.alignment="CENTER" />
+      <ListView id="calenderList" fx:id="calenderList" prefHeight="200.0" prefWidth="200.0" stylesheets="@MainViewStyle.css" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>

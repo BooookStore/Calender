@@ -3,26 +3,26 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package calender;
+package calender.list;
 
+import calender.CalenderModel;
 import javafx.scene.control.ListCell;
-import javafx.scene.shape.Rectangle;
 
 /**
  * カレンダーのリストを表すListViewのセル
- *
  * @author bookstore
  */
 public class CalenderListCell extends ListCell<CalenderModel> {
-
+    
     @Override
     protected void updateItem(CalenderModel item, boolean empty) {
         super.updateItem(item, empty);
-
-        Rectangle rect = new Rectangle(100, 20);
+        
         if (item != null) {
-            rect.setFill(item.getIconColor());
-            setGraphic(rect);
+            CalenderListCellGraph cell = new CalenderListCellGraph();
+            cell.nameLabelTextProperty().bind(((CalenderModel)item).calenderNameProperty());
+            System.out.println(((CalenderModel)item).calenderNameProperty().get());
+            setGraphic(cell);
         }
 
     }

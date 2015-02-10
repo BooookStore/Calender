@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered calender 2015.02.10 15-31-15-561">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="calender" name="CalenderModel" visibility="public">
+      <Constructors>
+        <Constructor name="CalenderModel" visibility="public"/>
+        <Constructor name="CalenderModel" visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Color" name="color"/>
+        </Constructor>
+      </Constructors>
+      <Fields>
+        <Field name="calenderName" visibility="private" type="StringProperty"/>
+        <Field name="iconColor" visibility="private" type="ObjectProperty&lt;Color&gt;"/>
+      </Fields>
+      <Methods>
+        <Method name="setCalenerName" visibility="public" returnType="void">
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="getCalenderName" visibility="public" returnType="String"/>
+        <Method name="calenderNameProperty" visibility="public" returnType="StringProperty"/>
+        <Method name="setIconColor" visibility="public" returnType="void">
+          <Argument type="Color" name="color"/>
+        </Method>
+        <Method name="getIconColor" visibility="public" returnType="Color"/>
+        <Method name="iconColorProperty" visibility="public" returnType="ObjectProperty&lt;Color&gt;"/>
+      </Methods>
+    </Class>
+    <Class xPosition="320.0" yPosition="20.0" package="calender.dayregion" name="DayRegion" visibility="public">
+      <Constructors>
+        <Constructor name="DayRegion" visibility="public">
+          <Argument type="int" name="day"/>
+        </Constructor>
+      </Constructors>
+      <Fields>
+        <Field name="dayString" visibility="private" type="Text" isFinal="true"/>
+      </Fields>
+      <Methods>
+        <Method name="settingsText" visibility="private" returnType="void">
+          <Argument type="int" name="day"/>
+        </Method>
+        <Method name="layoutChildren" visibility="protected" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="620.0" yPosition="20.0" package="calender.dayregion" name="VBoxDayCell" visibility="public">
+      <Constructors>
+        <Constructor name="VBoxDayCell" visibility="public">
+          <Argument type="int" name="day"/>
+        </Constructor>
+      </Constructors>
+      <Fields>
+        <Field name="day" visibility="private" type="Text"/>
+      </Fields>
+      <Methods>
+        <Method name="initSize" visibility="private" returnType="void"/>
+      </Methods>
+    </Class>
+    <Class xPosition="920.0" yPosition="20.0" package="calender.list" name="CalenderListCell" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods>
+        <Method name="updateItem" visibility="protected" returnType="void">
+          <Argument type="CalenderModel" name="item"/>
+          <Argument type="boolean" name="empty"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class xPosition="20.0" yPosition="420.0" package="calender.list" name="CalenderListCellGraph" visibility="public">
+      <Constructors>
+        <Constructor name="CalenderListCellGraph" visibility="public"/>
+      </Constructors>
+      <Fields>
+        <Field name="iconCircle" visibility="private" type="Circle"/>
+        <Field name="nameLabel" visibility="private" type="Label"/>
+      </Fields>
+      <Methods>
+        <Method name="nameLabelTextProperty" visibility="public" returnType="StringProperty"/>
+        <Method name="iconCircleFillProperty" visibility="public" returnType="ObjectProperty&lt;Paint&gt;"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="CalenderListCell" target="CalenderModel" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

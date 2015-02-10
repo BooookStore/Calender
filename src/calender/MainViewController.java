@@ -20,8 +20,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import java.util.function.Function;
 import javafx.scene.paint.Color;
-import java.util.Map;import javafx.collections.ObservableMap;
-;
 
 /**
  * FXML Controller class
@@ -50,7 +48,7 @@ public class MainViewController implements Initializable {
     private GridPane baseGrid;
     
     @FXML
-    private ListView<CalenderModel> calenderList;
+    private ListView calenderList;
     
     /**
      * calenderListのためのCalenderModelクラスを格納します

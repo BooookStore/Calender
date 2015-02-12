@@ -9,7 +9,7 @@ import calender.CalenderModel;
 import javafx.scene.control.ListCell;
 
 /**
- * カレンダーのリストを表すListViewのセル
+ * カレンダーのリストを表す一つのセルです。
  * @author bookstore
  */
 public class CalenderListCell extends ListCell<CalenderModel> {

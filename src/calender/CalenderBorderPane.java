@@ -22,11 +22,10 @@ import java.util.function.Function;
 import javafx.scene.paint.Color;
 
 /**
- * FXML Controller class
- *
+ * Calenderの基礎となる外形を作成します。
  * @author bookstore
  */
-public class MainViewController implements Initializable {
+public class CalenderBorderPane implements Initializable {
 
     /**
      * カレンダーのDayCellを作り出すファクトリです。外部から設定されます。

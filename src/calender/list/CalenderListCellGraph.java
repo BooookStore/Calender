@@ -30,7 +30,7 @@ public class CalenderListCellGraph extends HBox {
     public CalenderListCellGraph() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/calender/list/CalenderListCell.fxml"));
+            loader.setLocation(getClass().getResource("/calender/list/CalenderListCellGraph.fxml"));
             loader.setController(this);
             loader.setRoot(this);
             loader.load();

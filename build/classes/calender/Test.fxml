@@ -8,11 +8,11 @@
 
 <BorderPane fx:id="baseBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <GridPane fx:id="baseGrid" gridLinesVisible="true" BorderPane.alignment="CENTER">
+      <GridPane fx:id="baseGrid" gridLinesVisible="true" stylesheets="@MainViewStyle.css" BorderPane.alignment="CENTER">
 
       </GridPane>
    </center>
    <left>
-      <ListView fx:id="calenderList" prefHeight="200.0" prefWidth="200.0" style="list-cell:: 50;" styleClass="list-cell:even{ -fx-background-color : black }" BorderPane.alignment="CENTER" />
+      <ListView id="calenderList" fx:id="calenderList" prefHeight="200.0" prefWidth="200.0" stylesheets="@MainViewStyle.css" BorderPane.alignment="CENTER" />
    </left>
 </BorderPane>

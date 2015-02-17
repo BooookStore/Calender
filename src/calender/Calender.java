@@ -5,23 +5,17 @@
  */
 package calender;
 
-import calender.calendermodel.CalenderModel;
-import calender.calenderView.CalenderGridView;
-import calender.calendermodel.CalenderColorModel;
-import calender.dayregion.VBoxDayCell;
-import calender.list.ColorCircleListCell;
-import calender.list.ListViewFactory;
+import calender.calendermodel.CalenderProperties;
+import calender.list.CalenderListCell;
+import calender.list.ListViewBuilder;
 import java.io.IOException;
 import javafx.application.Application;
-import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import java.util.function.Function;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * アプリケーションスタート
@@ -31,48 +25,32 @@ import javafx.scene.paint.Color;
 public class Calender extends Application {
 
     /**
-     * カレンダーを表すモデルリストです
+     * カレンダーのリストです。
      */
-    private ObservableList<CalenderModel> calenderList;
-
+    private final ObservableList<CalenderProperties> calenderList = FXCollections.observableArrayList();
+    
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        //カレンダーモデルの作成
-        createCalenderList();
-
-        //Rootの作成
+        //カレンダーのリストを初期化します
+        initCalendeerList();
+        
+        //カレンダーのリストビューを作成します。
+        ListView calenderListView = new ListViewBuilder()
+                .setItemList(calenderList)
+                .setCellFactory(p -> new CalenderListCell())
+                .create();
+        calenderListView.getStylesheets().add("/calender/ListViewStyle.css");
+        
         BorderPane root = new BorderPane();
-
-        //DayCell作成ラムダ式を作成
-        Function<Integer, Node> func = ((Integer t) -> {
-            return new VBoxDayCell(t);
-        });
-
-        root.setCenter(new CalenderGridView(func));
-        root.setLeft(createCalenderListView());
-
-        Scene scene = new Scene(root, 1200, 700);
-
+        root.setLeft(calenderListView);
+        Scene scene = new Scene(root);
+        
         primaryStage.setTitle("カレンダー - JavaFX");
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    /**
-     * ListViewを作成します
-     * @return
-     */
-    ListView createCalenderListView() {
-
-        ListView result = new ListViewFactory()
-                .setItemList(calenderList)
-                .setCellFactory(param -> new ColorCircleListCell())
-                .create();
-
-        result.getStylesheets().add("calender/ListViewStyle.css");
         
-        return result;
+        calenderList.stream().filter((CalenderProperties param) -> "None Name".equals(param.getCalenderName())).forEach(System.out::println);
     }
 
     /**
@@ -81,15 +59,14 @@ public class Calender extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-    /**
-     * 保持するカレンダーモデルを作成します。
-     */
-    private void createCalenderList() {
-        calenderList = FXCollections.observableArrayList();
-        calenderList.add(new CalenderColorModel("first", Color.AQUA));
-        calenderList.add(new CalenderColorModel("second", Color.CORAL));
-        calenderList.add(new CalenderColorModel("thared", Color.BLUE));
+    
+    private void initCalendeerList(){
+        try{
+            calenderList.add(new CalenderProperties());
+            calenderList.add(new CalenderProperties());
+            calenderList.add(new CalenderProperties());
+        }catch(IOException ex){
+            
+        }
     }
-
 }

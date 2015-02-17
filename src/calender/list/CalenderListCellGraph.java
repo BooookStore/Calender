@@ -1,28 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package calender.list;
 
 import java.io.IOException;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 /**
  *
  * @author bookstore
  */
-public class CalenderListCellGraph extends HBox {
+public final class CalenderListCellGraph extends HBox {
 
-    @FXML
-    private Circle iconCircle;
+    /**
+     * カレンダーのアイコンプロパティです。 テキストで初期化します。
+     */
+    private ObjectProperty<Node> icon = new SimpleObjectProperty<>(new Text("[none icon]"));
 
     @FXML
     private Label nameLabel;
@@ -38,22 +36,32 @@ public class CalenderListCellGraph extends HBox {
             e.printStackTrace();
             System.out.println("CalenderListCell.fxml load error");
         }
+
+        //デフォルトアイコンを左側に表示します。
+        getChildren().add(0, icon.getValue());
+
+        //アイコンが変わったら、反映させます。
+        iconProperty().addListener((obv, ov, nv) -> {
+            getChildren().set(0, obv.getValue());
+        });
     }
 
     /**
      * カレンダーの名前を表示するLabelのText Propertyを返します。
-     * @return 
+     *
+     * @return
      */
-    public StringProperty nameLabelTextProperty(){
+    public StringProperty nameLabelTextProperty() {
         return nameLabel.textProperty();
     }
-    
+
     /**
-     * アイコンの色のFill Propertyを返します。
-     * @return 
+     * アイコンのプロパティを返します
+     *
+     * @return
      */
-    public ObjectProperty<Paint> iconCircleFillProperty(){
-        return iconCircle.fillProperty();
+    public ObjectProperty<Node> iconProperty() {
+        return icon;
     }
-    
+
 }

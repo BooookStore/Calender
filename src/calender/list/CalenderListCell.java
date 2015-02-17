@@ -5,23 +5,23 @@
  */
 package calender.list;
 
-import calender.calendermodel.CalenderColorModel;
+import calender.calendermodel.CalenderProperties;
 import javafx.scene.control.ListCell;
 
 /**
  *
  * @author bookstore
  */
-public class ColorCircleListCell extends ListCell<CalenderColorModel> {
+public class CalenderListCell extends ListCell<CalenderProperties> {
 
     @Override
-    protected void updateItem(CalenderColorModel item, boolean empty) {
+    protected void updateItem(CalenderProperties item, boolean empty) {
         super.updateItem(item, empty);
 
         if (item != null) {
             CalenderListCellGraph cell = new CalenderListCellGraph();
-            cell.nameLabelTextProperty().bind(item.calenderNameProperty());
-            System.out.println(item.calenderNameProperty().get());
+            cell.nameLabelTextProperty().bind(item.calenderNameProperty()); //カレンダーの名前をバインド
+            cell.iconProperty().bind(item.calenderIconProperty());          //カレンダーのアイコンをバインド
             setGraphic(cell);
         }
     }

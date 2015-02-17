@@ -13,18 +13,18 @@ import javafx.util.Callback;
  *
  * @author bookstore
  */
-public class ListViewFactory {
+public class ListViewBuilder {
     
     private ObservableList itemList;
     
     private Callback cellFactory;
     
-    public ListViewFactory setItemList(ObservableList itemList){
+    public ListViewBuilder setItemList(ObservableList itemList){
         this.itemList = itemList;
         return this;
     }
     
-    public ListViewFactory setCellFactory(Callback cellFactory){
+    public ListViewBuilder setCellFactory(Callback cellFactory){
         this.cellFactory = cellFactory;
         return this;
     }

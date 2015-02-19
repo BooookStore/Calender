@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered CalenderList 2015.02.10 18-12-46-334">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="CalenderList" isAbstract="true" name="CalenderListView" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods/>
+    </Class>
+    <Class xPosition="320.0" yPosition="20.0" package="CalenderList" name="NormalCalenderListView" visibility="public">
+      <Constructors/>
+      <Fields/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="NormalCalenderListView" target="CalenderListView"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

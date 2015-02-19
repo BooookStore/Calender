@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Reverse engineered CalenderBorderPane 2015.02.10 18-12-28-513">
+  <ClassDiagramComponents>
+    <Class xPosition="20.0" yPosition="20.0" package="CalenderBorderPane" name="CalenderBorderPane" visibility="public">
+      <Constructors/>
+      <Fields>
+        <Field name="calenderArray" visibility="private" type="ObservableList&lt;Object&gt;"/>
+      </Fields>
+      <Methods>
+        <Method name="setCalenderList" visibility="public" returnType="void">
+          <Argument type="CalenderListView" name="n"/>
+        </Method>
+        <Method name="setCalender" visibility="public" returnType="void">
+          <Argument type="Node" name="n"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
